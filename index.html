@@ -20,9 +20,18 @@
                 <h1>Votey</h1>
             </div>
             <nav>
-                <button class="nav-btn active" data-target="chat-section"><span class="material-symbols-outlined">chat</span> Assistant</button>
-                <button class="nav-btn" data-target="timeline-section"><span class="material-symbols-outlined">timeline</span> Timeline</button>
-                <button class="nav-btn" data-target="info-section"><span class="material-symbols-outlined">info</span> Guidelines</button>
+                <div class="nav-group">
+                    <small>Core</small>
+                    <button class="nav-btn active" data-target="chat-section"><span class="material-symbols-outlined">chat</span> AI Assistant</button>
+                    <button class="nav-btn" data-target="timeline-section"><span class="material-symbols-outlined">timeline</span> Timeline</button>
+                    <button class="nav-btn" data-target="info-section"><span class="material-symbols-outlined">info</span> Guidelines</button>
+                </div>
+                <div class="nav-group">
+                    <small>Smart Features</small>
+                    <button class="nav-btn" data-target="insights-section"><span class="material-symbols-outlined">lightbulb</span> AI Insights</button>
+                    <button class="nav-btn" data-target="profile-section"><span class="material-symbols-outlined">person</span> Voter Profile</button>
+                    <button class="nav-btn" data-target="locator-section"><span class="material-symbols-outlined">map</span> Booth Locator</button>
+                </div>
             </nav>
             <div class="settings">
                 <div class="api-key-container">
@@ -50,8 +59,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="suggestion-chips">
+                        <button class="chip" onclick="document.getElementById('chat-input').value='How to register?'; document.getElementById('send-btn').click();">How to register?</button>
+                        <button class="chip" onclick="document.getElementById('chat-input').value='Check my eligibility'; document.getElementById('send-btn').click();">Check my eligibility</button>
+                        <button class="chip" onclick="document.getElementById('chat-input').value='Explain voting process'; document.getElementById('send-btn').click();">Voting process</button>
+                    </div>
                     <div class="chat-input-container">
                         <input type="text" id="chat-input" placeholder="Type your question here..." aria-label="Type your question for the election assistant">
+                        <button id="mic-btn" aria-label="Use voice input" title="Voice Input"><span class="material-symbols-outlined">mic</span></button>
                         <button id="send-btn" aria-label="Send message" title="Send"><span class="material-symbols-outlined">send</span></button>
                     </div>
                 </div>
@@ -64,31 +79,43 @@
                     <p>Key dates and deadlines for the upcoming elections.</p>
                 </header>
                 <div class="timeline-container">
-                    <div class="timeline-item">
+                    <div class="timeline-item completed">
                         <div class="timeline-date">Jan 15, 2024</div>
                         <div class="timeline-content">
-                            <h3>Voter Registration Opens</h3>
+                            <div class="timeline-title-row">
+                                <h3>Voter Registration Opens</h3>
+                                <span class="status-badge">Completed</span>
+                            </div>
                             <p>Ensure you are registered to vote. Check your status online on the official election commission portal. If you are a new voter, fill out the necessary forms.</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item urgent highlight">
                         <div class="timeline-date">Mar 30, 2024</div>
                         <div class="timeline-content">
-                            <h3>Registration Deadline</h3>
+                            <div class="timeline-title-row">
+                                <h3>Registration Deadline</h3>
+                                <span class="status-badge urgent">3 Days Left</span>
+                            </div>
                             <p>This is the last day to register or update your voter details (address, name correction). Applications submitted after this date will not be processed for the upcoming election.</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item upcoming">
                         <div class="timeline-date">Apr 10, 2024</div>
                         <div class="timeline-content">
-                            <h3>Early Voting / Mail-in Ballots Begin</h3>
+                            <div class="timeline-title-row">
+                                <h3>Early Voting / Mail-in Ballots Begin</h3>
+                                <span class="status-badge upcoming">Upcoming</span>
+                            </div>
                             <p>Beat the rush and vote early at designated polling stations. For eligible voters, mail-in ballots will be dispatched starting today.</p>
                         </div>
                     </div>
-                    <div class="timeline-item highlight">
+                    <div class="timeline-item upcoming">
                         <div class="timeline-date">May 01, 2024</div>
                         <div class="timeline-content">
-                            <h3>Election Day</h3>
+                            <div class="timeline-title-row">
+                                <h3>Election Day</h3>
+                                <span class="status-badge upcoming">Upcoming</span>
+                            </div>
                             <p>Polling stations are open from 7 AM to 6 PM. Bring your valid Voter ID or authorized identification. Your vote is your voice!</p>
                         </div>
                     </div>
@@ -100,9 +127,13 @@
                 <header class="section-header">
                     <h2>Voter Guidelines</h2>
                     <p>Step-by-step process to successfully cast your vote.</p>
+                    <div class="progress-tracker">
+                        <span>Step 1 of 4 completed</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 25%;"></div></div>
+                    </div>
                 </header>
                 <div class="cards-container">
-                    <div class="info-card interactive-card" tabindex="0" role="button" aria-expanded="false">
+                    <div class="info-card interactive-card completed-step" tabindex="0" role="button" aria-expanded="false">
                         <div class="card-header-main">
                             <span class="material-symbols-outlined card-icon">how_to_reg</span>
                             <div class="card-title-group">
@@ -115,7 +146,8 @@
                             <p>Verify your name on the electoral roll. If missing, apply via official forms online or offline.</p>
                             <div class="hidden-details">
                                 <div class="hidden-content-wrapper">
-                                    <p><strong>Pro Tip:</strong> You can use Form 6 for new registration. Make sure to keep your address proof and age proof handy before applying.</p>
+                                    <label class="checklist-item"><input type="checkbox" checked> I have verified my name on the roll.</label>
+                                    <p><strong>💡 AI Tip:</strong> You can use Form 6 for new registration. Make sure to keep your address proof and age proof handy before applying.</p>
                                 </div>
                             </div>
                         </div>
@@ -179,6 +211,84 @@
                     </div>
                 </div>
             </section>
+
+            <!-- AI Insights Section -->
+            <section id="insights-section" class="content-section">
+                <header class="section-header">
+                    <h2>AI Insights & Alerts</h2>
+                    <p>Personalized guidance and smart alerts based on your location.</p>
+                </header>
+                <div class="cards-container">
+                    <div class="insight-card highlight-card">
+                        <div class="card-header-main">
+                            <span class="material-symbols-outlined card-icon">notifications_active</span>
+                            <h3>Smart Alert: Deadline Approaching</h3>
+                        </div>
+                        <p>Voter registration in your area closes in <strong>3 days</strong>. Ensure your documents are uploaded.</p>
+                    </div>
+                    <div class="insight-card">
+                        <div class="card-header-main">
+                            <span class="material-symbols-outlined card-icon">fact_check</span>
+                            <h3>Next Steps</h3>
+                        </div>
+                        <p>Based on your profile, you need to verify your ID status. Use the Assistant to check acceptable IDs.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Voter Profile Section -->
+            <section id="profile-section" class="content-section">
+                <header class="section-header">
+                    <h2>My Voter Profile</h2>
+                    <p>AI-generated summary of your voting status.</p>
+                </header>
+                <div class="profile-dashboard">
+                    <div class="status-banner status-warning">
+                        <span class="material-symbols-outlined">error</span>
+                        <div>
+                            <strong>Status: Action Required</strong>
+                            <p>You are eligible, but need to verify your ID before voting.</p>
+                        </div>
+                    </div>
+                    <div class="checklist-container">
+                        <h3>Required Documents Checklist</h3>
+                        <label class="checklist-item"><input type="checkbox" checked> Age Proof</label>
+                        <label class="checklist-item"><input type="checkbox" checked> Address Proof</label>
+                        <label class="checklist-item"><input type="checkbox"> Identity Verification (Pending)</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booth Locator Section -->
+            <section id="locator-section" class="content-section">
+                <header class="section-header">
+                    <h2>Polling Booth Locator</h2>
+                    <p>Find your nearest booth and get AI predictions.</p>
+                </header>
+                <div class="locator-container">
+                    <div class="search-bar">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="text" placeholder="Enter your ZIP code or city...">
+                        <button class="primary-btn">Locate</button>
+                    </div>
+                    <div class="booth-result">
+                        <div class="map-placeholder">
+                            <span class="material-symbols-outlined">map</span>
+                            <p>Map View</p>
+                        </div>
+                        <div class="booth-details">
+                            <h3>Central High School Booth</h3>
+                            <p><span class="material-symbols-outlined">distance</span> 1.2 miles away</p>
+                            <p class="prediction low-crowd"><span class="material-symbols-outlined">groups</span> Crowd Prediction: Low</p>
+                            <div class="ai-suggestion">
+                                <span class="material-symbols-outlined">lightbulb</span>
+                                <p><strong>AI Suggestion:</strong> Best time to visit is between 10:00 AM and 11:30 AM to avoid lines.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </main>
     </div>
     <script src="script.js"></script>
