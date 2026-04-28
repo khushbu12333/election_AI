@@ -1,8 +1,8 @@
-# Votey - Smart Election Assistant 🗳️
+# Votey - Smart Election Assistant 
 
 **Votey** is a modern, interactive, and intelligent web application designed to help users understand the election process, voting timelines, and guidelines. It serves as a personal guide to empower citizens with accurate election information.
 
-## ✨ Features
+##  Features
 * **🤖 Smart Assistant Integration:** A built-in chat interface powered by the **Google Gemini API**. It provides dynamic, context-aware answers to user queries regarding the election process.
 * **📅 Interactive Timeline:** A visually distinct timeline outlining key dates and deadlines (e.g., registration, early voting, and election day).
 * **📚 Voter Guidelines (Interactive Accordions):** A step-by-step card layout explaining the registration and voting process. Built with premium glassmorphism design, smooth hover glows, and a responsive 2x2 grid that expands gracefully upon clicking.
@@ -15,7 +15,7 @@
 * **JavaScript (Vanilla):** DOM manipulation, event handling, and API integration.
 * **API:** Google Gemini (`gemini-2.5-flash`) for the conversational AI assistant.
 
-## 🚀 How to Run Locally
+##  How to Run Locally
 1. Clone the repository:
    ```bash
    git clone https://github.com/khushbu12333/election_AI.git
