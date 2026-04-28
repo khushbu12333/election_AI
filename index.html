@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votey - Smart Election Assistant</title>
+    <meta name="description" content="Votey is your personal smart assistant for understanding the election process, voting timelines, and guidelines.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Menu -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="material-symbols-outlined icon-large">how_to_vote</span>
+                <h1>Votey</h1>
+            </div>
+            <nav>
+                <button class="nav-btn active" data-target="chat-section"><span class="material-symbols-outlined">chat</span> Assistant</button>
+                <button class="nav-btn" data-target="timeline-section"><span class="material-symbols-outlined">timeline</span> Timeline</button>
+                <button class="nav-btn" data-target="info-section"><span class="material-symbols-outlined">info</span> Guidelines</button>
+            </nav>
+            <div class="settings">
+                <div class="api-key-container">
+                    <label for="api-key">Google Gemini API Key</label>
+                    <input type="password" id="api-key" placeholder="Enter API Key to enable AI">
+                    <small>Required for smart assistant</small>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Chat Section -->
+            <section id="chat-section" class="content-section active">
+                <header class="section-header">
+                    <h2>Smart Election Assistant</h2>
+                    <p>Ask anything about the election process, requirements, or steps.</p>
+                </header>
+                <div class="chat-container">
+                    <div class="chat-history" id="chat-history" aria-live="polite">
+                        <div class="message ai-message">
+                            <div class="avatar"><span class="material-symbols-outlined">smart_toy</span></div>
+                            <div class="message-content">
+                                Hello! I'm Votey, your smart election assistant powered by Google Gemini. I can help you understand how to register, where to vote, and the overall election process. How can I help you today?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chat-input" placeholder="Type your question here..." aria-label="Type your question for the election assistant">
+                        <button id="send-btn" aria-label="Send message" title="Send"><span class="material-symbols-outlined">send</span></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section id="timeline-section" class="content-section">
+                <header class="section-header">
+                    <h2>Election Timeline</h2>
+                    <p>Key dates and deadlines for the upcoming elections.</p>
+                </header>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 15, 2024</div>
+                        <div class="timeline-content">
+                            <h3>Voter Registration Opens</h3>
+                            <p>Ensure you are registered to vote. Check your status online on the official election commission portal. If you are a new voter, fill out the necessary forms.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Mar 30, 2024</div>
+                        <div class="timeline-content">
+                            <h3>Registration Deadline</h3>
+                            <p>This is the last day to register or update your voter details (address, name correction). Applications submitted after this date will not be processed for the upcoming election.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Apr 10, 2024</div>
+                        <div class="timeline-content">
+                            <h3>Early Voting / Mail-in Ballots Begin</h3>
+                            <p>Beat the rush and vote early at designated polling stations. For eligible voters, mail-in ballots will be dispatched starting today.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item highlight">
+                        <div class="timeline-date">May 01, 2024</div>
+                        <div class="timeline-content">
+                            <h3>Election Day</h3>
+                            <p>Polling stations are open from 7 AM to 6 PM. Bring your valid Voter ID or authorized identification. Your vote is your voice!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Guidelines Section -->
+            <section id="info-section" class="content-section">
+                <header class="section-header">
+                    <h2>Voter Guidelines</h2>
+                    <p>Step-by-step process to successfully cast your vote.</p>
+                </header>
+                <div class="cards-container">
+                    <div class="info-card interactive-card" tabindex="0" role="button" aria-expanded="false">
+                        <div class="card-header-main">
+                            <span class="material-symbols-outlined card-icon">how_to_reg</span>
+                            <div class="card-title-group">
+                                <h3>1. Registration</h3>
+                                <span class="expand-hint">Click to expand</span>
+                            </div>
+                            <span class="material-symbols-outlined expand-icon">expand_more</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Verify your name on the electoral roll. If missing, apply via official forms online or offline.</p>
+                            <div class="hidden-details">
+                                <div class="hidden-content-wrapper">
+                                    <p><strong>Pro Tip:</strong> You can use Form 6 for new registration. Make sure to keep your address proof and age proof handy before applying.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card interactive-card" tabindex="0" role="button" aria-expanded="false">
+                        <div class="card-header-main">
+                            <span class="material-symbols-outlined card-icon">badge</span>
+                            <div class="card-title-group">
+                                <h3>2. ID Verification</h3>
+                                <span class="expand-hint">Click to expand</span>
+                            </div>
+                            <span class="material-symbols-outlined expand-icon">expand_more</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Carry your Voter ID (EPIC) or any authorized identity card (Passport, Driving License) to the polling booth.</p>
+                            <div class="hidden-details">
+                                <div class="hidden-content-wrapper">
+                                    <p><strong>Note:</strong> If you don't have your physical Voter ID, PAN card, Aadhaar card, or official bank passbook with photograph are generally accepted as well.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card interactive-card" tabindex="0" role="button" aria-expanded="false">
+                        <div class="card-header-main">
+                            <span class="material-symbols-outlined card-icon">fingerprint</span>
+                            <div class="card-title-group">
+                                <h3>3. Polling Booth Process</h3>
+                                <span class="expand-hint">Click to expand</span>
+                            </div>
+                            <span class="material-symbols-outlined expand-icon">expand_more</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Identity verification → finger ink marking → receive slip.</p>
+                            <div class="hidden-details">
+                                <div class="hidden-content-wrapper">
+                                    <p><strong>Process:</strong> The first polling officer checks your name. The second officer marks your left forefinger with indelible ink, records your signature, and issues a voter's slip. The third officer collects the slip and allows you to vote.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card interactive-card" tabindex="0" role="button" aria-expanded="false">
+                        <div class="card-header-main">
+                            <span class="material-symbols-outlined card-icon">ballot</span>
+                            <div class="card-title-group">
+                                <h3>4. Casting Your Vote</h3>
+                                <span class="expand-hint">Click to expand</span>
+                            </div>
+                            <span class="material-symbols-outlined expand-icon">expand_more</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Go to EVM → press button next to candidate → wait for confirmation beep.</p>
+                            <div class="hidden-details">
+                                <div class="hidden-content-wrapper">
+                                    <p><strong>Final Step:</strong> Check the VVPAT machine next to the EVM; a printed slip will appear for 7 seconds showing your chosen candidate's serial number, name, and symbol to confirm your vote.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
